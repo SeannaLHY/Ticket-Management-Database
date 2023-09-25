@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+
+<h1>Hi, booking agent!</h1>
+
+<nav>
+<a href="/BookingAgentViewMyFlights">View My flights</a> |
+<a href="/BookingAgentSearchTickets">Search for flights</a> |
+<a href="/BookingAgentPurchaseTickets">Purchase Tickets</a> |
+<a href="/BookingAgentViewMyCommission">View My Commission</a> |
+<a href="/BookingAgentViewTopCustomers">View Top Customers</a> | 
+<a href="/BookingAgentLogout">Logout</a>
+</nav>
+
+
+
+<!--typography-page -->
+<div class="typo">
+	<div id="container1"></div>
+	<div id="container2"></div>
+</div>
+
+
+<script>
+Highcharts.chart('container1', {
+	chart: {
+		type: 'column'
+	},
+	title: {
+		text: 'View your top 5 customers in the past 6 months based on the number of tickets'
+	},
+	accessibility: {
+		announceNewData: {
+			enabled: true
+		}
+	},
+	xAxis: {
+		type: 'category',
+		title: {
+            text: 'Customer Email'
+        }
+	},
+	yAxis: {
+		type: 'category',
+		title: {
+            text: 'Number of Tickets'
+        }
+	},
+	legend: {
+		enabled: false
+	},
+	plotOptions: {
+		series: {
+			borderWidth: 0,
+			dataLabels: {
+				enabled: true,
+				// format: '{point.y:.1f}'
+			},
+			enableMouseTracking: false,
+		}
+	},
+
+	tooltip: {
+		headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+		pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+	},
+
+	series: [
+		{
+			colorByPoint: true,
+			data: {{my_array1 | safe}}
+		}
+	]
+});
+</script>
+
+<script>
+Highcharts.chart('container2', {
+	chart: {
+		type: 'column'
+	},
+	title: {
+		text: 'View your top 5 customers in the last year based on the amount of commission'
+	},
+	accessibility: {
+		announceNewData: {
+			enabled: true
+		}
+	},
+	xAxis: {
+		type: 'category',
+		title: {
+            text: 'Customer Email'
+        }
+	},
+	yAxis: {
+		type: 'category',
+		title: {
+            text: 'Amount of Commission'
+        }
+	},
+	legend: {
+		enabled: false
+	},
+	plotOptions: {
+		series: {
+			borderWidth: 0,
+			dataLabels: {
+				enabled: true,
+					// format: '{point.y:.d}'
+			},
+			enableMouseTracking: false,
+		}
+	},
+
+	tooltip: {
+		headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+		pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+	},
+
+	series: [
+		{
+			colorByPoint: true,
+			data: {{my_array2 | safe}}
+		}
+	]
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+
+
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+<p>Here, you can add new airport</p>
+
+<form action="/StaffAddNewAirport" method="POST">
+<table border="1" cellspacing="0">
+		<tr>
+			<td><label for="from">City name</label></td>
+			<td><input type="text" name="airport_city" required/></td>
+		</tr>
+		<tr>
+			<td><label for="from">Airport name</label></td>
+			<td><input type="text" name="airport_name" required/></td>
+		</tr>
+</table>
+<input type="submit" class="btn btn-primary btn-block" value="Add">
+</form>
+
+
+{% if message %}
+<script>
+	alert("Successfully Added!");
+</script>
+{% endif %}
+{% if error %}
+<script>
+	alert("Fail to add!");
+</script>
+{% endif %}
+
+
+
+</body>
+</html>

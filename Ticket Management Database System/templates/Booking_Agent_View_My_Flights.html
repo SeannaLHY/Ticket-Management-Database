@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, booking agent!</h1>
+
+<nav>
+<a href="/BookingAgentViewMyFlights">View My flights</a> |
+<a href="/BookingAgentSearchTickets">Search for flights</a> |
+<a href="/BookingAgentPurchaseTickets">Purchase Tickets</a> |
+<a href="/BookingAgentViewMyCommission">View My Commission</a> |
+<a href="/BookingAgentViewTopCustomers">View Top Customers</a> | 
+<a href="/BookingAgentLogout">Logout</a>
+</nav>
+
+<p>Here, you can view your booked UPCOMING flights:</p>
+
+<form action="/BookingAgentViewMyFlights" method="POST">
+
+    <table border = "1" cellspacing="0">
+    
+     <tr>
+         <td>
+		<label for="from">From:</label>
+		</td>
+		<td>
+		<input type="text" name = "departure" placeholder="NYC"/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">To:</label>
+		</td>
+		<td>
+		<input type="text" name = "destination" placeholder="PVG"/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="date-start">Departure Date:</label>
+		</td>
+		<td>
+		<input type="date" name = "DepartureDate" required="">
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="date-start">Arrival Date:</label>
+		</td>
+		<td>
+		<input type="date" name = "ArrivalDate" required="">
+        </td>
+    <tr>
+  
+    </table>
+    
+    <div class="row">
+		<input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+    </div>
+											
+</form>
+    
+
+<table border = "1" cellspacing="0">
+	<thead>
+	<tr>
+	<th>Airline Name</th>
+	<th>Flight Number</th>
+	<th>Departure Airport</th>
+    <th>Departure Date</th>
+	<th>Departure Time</th>
+	<th>Arrival Airport</th>
+    <th>Arrival Date</th>
+	<th>Arrival Time</th>
+	<th>Ticket Price</th>
+	<th>Flight Status</th>
+	<th>Airplane ID</th>
+	</tr>
+	</thead>
+    
+	<tbody>
+	{% for row in rows %}
+		<tr>
+		<td>{{row[0]}}</td>
+		<td>{{row[1]}}</td>
+		<td>{{row[2]}}</td>
+		<td>{{row[3]}}</td>
+		<td>{{row[4]}}</td>
+		<td>{{row[5]}}</td>
+		<td>{{row[6]}}</td>
+		<td>{{row[7]}}</td>
+		<td>{{row[8]}}</td>
+        <td>{{row[9]}}</td>
+		<td>{{row[10]}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+
+</body>
+</html>

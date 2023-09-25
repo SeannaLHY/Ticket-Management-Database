@@ -1,0 +1,273 @@
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+    <h1>Welcome to the REGISTER page!</h1>
+
+    
+    
+     <i>Customers:</i>
+     
+	<form action="/CustomerRegisterAuth" method="POST">
+
+    <table border = "1" cellspacing="0">
+    
+     <tr>
+         <td>
+		<label for="from">Email</label>
+		</td>
+		<td>
+		<input type="text" name = "email" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Name</label>
+		</td>
+		<td>
+		<input type="text" name = "name" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Password</label>
+		</td>
+		<td>
+		<input type="text" name = "password" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Building Number</label>
+		</td>
+		<td>
+		<input type="text" name = "building_number" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Street</label>
+		</td>
+		<td>
+		<input type="text" name = "street" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">City</label>
+		</td>
+		<td>
+		<input type="text" name = "city" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">State</label>
+		</td>
+		<td>
+		<input type="text" name = "state" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Phone Number</label>
+		</td>
+		<td>
+		<input type="number" name = "phone_number" aria-describedby="basic-addon1" maxlength="11"  required/>
+        </td>
+    <tr>
+    
+     <tr>
+         <td>
+		<label for="from">Passport Number</label>
+		</td>
+		<td>
+		<input type="text" name = "passport_number" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="date-start">Passport Expiration Date</label>
+		</td>
+		<td>
+		<input type="date" id="datepicker" name="passport_expiration" required/>
+        </td>
+    <tr>
+    
+   <tr>
+         <td>
+		<label for="from">Passport Country</label>
+		</td>
+		<td>
+		<input type="text"  name = "passport_country" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="date-end">Date of Birth</label>
+		</td>
+		<td>
+		<input type="date" name = "date_of_birth" required/>
+        </td>
+    <tr>
+    </table>
+    
+    <div class="row">
+		<input type="submit" class="btn btn-primary btn-block" value="Register">
+    </div>
+											
+    </form>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     <i>Booking Agent:</i>
+     
+	<form action="/AgentRegisterAuth" method="POST">
+
+    <table border = "1" cellspacing="0">
+    
+     <tr>
+         <td>
+		<label for="from">Email</label>	
+		</td>
+		<td>
+		<input type="text" name = "email" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Password</label>
+		</td>
+		<td>
+		<input type="text" name = "password" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Booking Agent ID</label>
+		</td>
+		<td>
+		<input type="int" name = "booking_agent_id" placeholder="123" aria-describedby="basic-addon1" maxlength="9" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^19]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+													onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-19]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" required/>
+        </td>
+    <tr>
+    </table>
+    
+    <div class="row">
+		<input type="submit" class="btn btn-primary btn-block" value="Register">
+    </div>
+											
+    </form>
+
+
+
+
+ <i>Airline Staff:</i>
+     
+	<form action="/AirlineStaffRegisterAuth" method="POST">
+
+    <table border = "1" cellspacing="0">
+    
+     <tr>
+         <td>
+		<label for="from">Username</label>
+		</td>
+		<td>
+		<input type="text" name = "username" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Password</label>
+		</td>
+		<td>
+		<input type="text" name = "password" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">First Name</label>
+		</td>
+		<td>
+		<input type="text" name = "first_name" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Last Name</label>
+		</td>
+		<td>
+		<input type="text" name = "last_name" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="date-end">Date of Birth</label>
+		</td>
+		<td>
+		<input type="date" name = "date_of_birth" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Airline Name</label>
+		</td>
+		<td>
+		<input type="text" name = "airline_name" placeholder="China Eastern" required/>
+        </td>
+    <tr>
+    
+    
+    </table>
+    
+    <div class="row">
+		<input type="submit" class="btn btn-primary btn-block" value="Register">
+    </div>
+											
+    </form>
+ 
+ {% if Success %}
+	<script>
+		alert("Successfully register!");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("Register Failed!");
+	</script>
+	{% endif %}
+ 
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+
+ 
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+<p>Here, you can view booking agents</p>
+
+<!-- //header -->
+<!--typography-page -->
+	<div class="typo">
+		<div class="container">
+			<!-- for-tables -->
+			<div class="grid_3 grid_5 animated wow slideInUp">
+				<div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+					</br><h3 class="title animated wow zoomIn">Top 5 Booking Agents sold most tickets last month</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Email</th>
+								<th>Booking agent id</th>
+								<th>Performance</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for row in rows1 %}
+						<tr>
+
+							<td>{{row[0]}}</td>
+							<td>{{row[1]}}</td>
+							<td>{{row[2]}}</td>
+
+						</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+					</br></br>
+
+					</br><h3 class="title animated wow zoomIn">Top 5 Booking Agents sold most tickets last year</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Email</th>
+								<th>Booking agent id</th>
+								<th>Performance</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for row in rows2 %}
+							<tr>
+							<td>{{row[0]}}</td>
+							<td>{{row[1]}}</td>
+							<td>{{row[2]}}</td>
+						</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+					</br></br>
+
+					</br><h3 class="title animated wow zoomIn">Top 5 Booking Agents received most commission last year</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Email</th>
+								<th>Booking agent id</th>
+								<th>Commission</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for row in rows3 %}
+						<tr>
+
+							<td>{{row[0]}}</td>
+							<td>{{row[1]}}</td>
+							<td>{{row[2]}}</td>
+
+						</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- //typography-page -->
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

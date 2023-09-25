@@ -1,0 +1,172 @@
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+
+
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<style>
+canvas {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+</style>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- login-pop-up -->
+<script src="js/menu_jquery.js"></script>
+<!-- //login-pop-up -->
+<!-- animation-effect -->
+<link href="css/animate.min.css" rel="stylesheet">
+<script src="js/wow.min.js"></script>
+
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+
+</head>
+<body>
+<!-- //animation-effect -->
+
+</head>
+<body>
+<!-- header -->
+</head>
+<body>
+    <div id="fh5co-wrapper">
+    <div id="fh5co-page">
+
+		<nav>
+			<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+			<a href="/StaffViewTopDestinations">Top Destinations</a>
+			<a href="/StaffCreateNewFlights">Create New Flights</a>
+			<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+			<a href="/StaffAddAirplane">Add Airplane</a>
+			<a href="/StaffAddNewAirport">Add Airport</a>
+			<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+			<a href="/StaffAddAgent">Add Agent</a>
+			<a href="/StaffViewMyFlights">View My flights</a>
+			<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+			<a href="/StaffReports">Reports</a>
+			<a href="/StaffViewBookingAgent">Booking Agent</a>
+			<a href="/AirlineStaffLogout">Logout</a>
+		</nav>
+
+
+<!-- //header -->
+<!--typography-page -->
+<div class="typo">
+	<div class="container">
+		<h3 class="title animated wow zoomIn">Reports</h3>
+		<table border="1" cellspacing="0">
+			<form action="/StaffReports" onSubmit="return false;" action="#">
+				<tr>
+					<td><label for="date-start">Start Date</label></td>
+					<td><input type="date" class="form-control" id="StartTime" name="StartTime" placeholder="Start time" aria-describedby="basic-addon1" required/></td>
+				</tr>
+				<tr>
+					<td><label for="date-start">End Date</label></td>
+					<td><input type="date" class="form-control" id="EndTime" name="EndTime" placeholder="End time" aria-describedby="basic-addon1" required/></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" class="btn btn-primary btn-block" value="Submit" onclick="onSubmit()"></td>
+				</tr>
+			</form>
+		</table>
+		<!-- end-for-specify a range of dates -->
+		<!-- for-bar charts -->
+	</div>
+	<div id="container_chart"></div>
+</div>
+
+
+<!-- //typography-page -->
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+
+<script>
+function onSubmit() {
+	console.log("onSubmit!!!");
+	console.log(document.getElementById("StartTime").value);
+	console.log(document.getElementById("EndTime").value);
+	$.ajax({
+		type: "POST",
+		url: "http://127.0.0.1:9000/StaffReports",
+		dataType: "json",
+		data: {
+			StartTime: document.getElementById("StartTime").value,
+			EndTime: document.getElementById("EndTime").value
+		},
+		success: data => {
+			console.log(data);
+			Highcharts.chart('container_chart', {
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: 'Month-wise Tickets Sold'
+				},
+				accessibility: {
+					announceNewData: {
+						enabled: true
+					}
+				},
+				xAxis: {
+					type: 'category'
+				},
+				legend: {
+					enabled: false
+				},
+				plotOptions: {
+					series: {
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							// format: '{point.y:.1f}%'
+						},
+						enableMouseTracking: false,
+					}
+				},
+
+				tooltip: {
+					headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+					pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+				},
+
+				series: [
+					{
+						colorByPoint: true,
+						data: data.map(i => {
+							return {
+								name: i[0],
+								y: i[1]
+							}
+						})
+					}
+				]
+			});
+		}
+	});
+	return false;
+}
+</script>
+
+</body>
+</html>

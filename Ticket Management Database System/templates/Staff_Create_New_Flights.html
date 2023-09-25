@@ -1,0 +1,145 @@
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+<!-- //animation-effect -->
+
+
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+<p>Here, you can create new flights</p>
+
+<form action="/StaffCreateNewFlights" method="POST">
+<table border="1" cellspacing="0">
+	  <tr>
+		<td>Flight Number</td>
+		<td><input type="int" class="form-control" name="flight_num" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Departure airport</td>
+		<td><input type="text" class="form-control" name="DepartureAirport" placeholder=" " aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Departure date</td>
+		<td><input type="date" class="form-control" name="DepartureDate" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Departure time</td>
+		<td><input type="time" class="form-control" name="DepartureTime" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Arrival airport</td>
+		<td><input type="text" class="form-control" name="ArrivalAirport" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Arrival date</td>
+		<td><input type="date" class="form-control" name="ArrivalDate" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Arrival time</td>
+		<td><input type="time" class="form-control" name="ArrivalTime" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Ticket price</td>
+		<td><input type="int" class="form-control" name="TicketPrice" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+	  <tr>
+		<td>Flight status</td>
+		<td>
+		  <select name="FlightStatus">
+			<option value="upcoming">Upcoming</option>
+			<option value="in progress">InProgress</option>
+			<option value="delayed">Delayed</option>
+		  </select>
+		</td>
+	  </tr>
+	  <tr>
+		<td>Airplane ID</td>
+		<td><input type="int" class="form-control" name="airplane_id" placeholder="" aria-describedby="basic-addon1" required/></td>
+	  </tr>
+  </table>
+<input type="submit" class="btn btn-primary btn-block" value="Create New Flight">
+</form>
+
+
+<table border="1" cellspacing="0">
+	<thead>
+		<tr>
+			<th>Airline name</th>
+			<th>Flight number</th>
+			<th>Departure airport</th>
+			<th>Departure date</th>
+			<th>Departure time</th>
+			<th>Arrival airport</th>
+			<th>Arrival date</th>
+			<th>Arrival time</th>
+			<th>Ticket price</th>
+			<th>Flight status</th>
+			<th>airplane_id</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for row in rows %}
+		<tr>
+			<td>{{row[0]}}</td>
+			<td>{{row[1]}}</td>
+			<td>{{row[2]}}</td>
+			<td>{{row[3]}}</td>
+			<td>{{row[4]}}</td>
+			<td>{{row[5]}}</td>
+			<td>{{row[6]}}</td>
+			<td>{{row[7]}}</td>
+			<td>{{row[8]}}</td>
+			<td>{{row[9]}}</td>
+			<td>{{row[10]}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+	{% if message %}
+	<script>
+		alert("Successfully Added.");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("Fail to Add!");
+	</script>
+	{% endif %}
+<!-- //typography-page -->
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+
+</html>

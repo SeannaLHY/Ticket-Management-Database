@@ -1,0 +1,88 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+
+<!-- //animation-effect -->
+</head>
+<body>
+<h1>Hi, customer!</h1>
+
+
+<nav>
+	<a href="/CustomerViewMyFlights">View My Flights</a>
+	<a href="/CustomerSearchTickets">Search For Flights</a>
+	<a href="/CustomerPurchaseTickets">Purchase Tickets</a>
+	<a href="/CustomerTrackMySpending">Track My Spending</a>
+	<a href="/CustomerLogout">Logout</a>
+</nav>
+
+<p>Here, you can search for flights:</p>
+
+
+<div class="typo">
+	<div class="container">
+		<form action="/CustomerSearchFlight" method="POST">
+			<table border="1" cellspacing="0">
+				<tr>
+					<td><label for="from">From:</label></td>
+					<td><input type="text" class="form-control" name="departure" id="from-place" placeholder=""/></td>
+				</tr>
+				<tr>
+					<td><label for="to">To:</label></td>
+					<td><input type="text" class="form-control" name="arrival" id="to-place" placeholder=""/></td>
+				</tr>
+				<tr>
+					<td><label for="date">Departure Date:</label></td>
+					<td><input type="date" class="form-control" name="date" id="datepicker" type="date" required=""/></td>
+				</tr>
+			</table>
+			<div class="col-xs-offset-10">
+				<input type="submit" class="btn btn-primary btn-block" value="Search Flight"/>
+			</div>
+		</form>
+	</div>
+</div>
+</form>
+<table border = "1" cellspacing="0">
+	<thead>
+	<tr>
+	<th>Airline Name</th>
+	<th>Flight Number</th>
+	<th>Departure Airport</th>
+	<th>Departure Date</th>
+	<th>Departure Time</th>
+	<th>Arrival Airport</th>
+	<th>Arrival Date</th>
+	<th>Arrival Time</th>
+	<th>Ticket Price</th>
+	<th>Flight Status</th>
+	<th>Airplane ID</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	{% for row in rows %}
+		<tr>
+		<td>{{row[0]}}</td>
+		<td>{{row[1]}}</td>
+		<td>{{row[2]}}</td>
+		<td>{{row[3]}}</td>
+		<td>{{row[4]}}</td>
+		<td>{{row[5]}}</td>
+		<td>{{row[6]}}</td>
+		<td>{{row[7]}}</td>
+		<td>{{row[8]}}</td>
+		<td>{{row[9]}}</td>
+		<td>{{row[10]}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, booking agent! You can search tickets. </h1>
+
+<nav>
+<a href="/BookingAgentViewMyFlights">View My flights</a> |
+<a href="/BookingAgentSearchTickets">Search for flights</a> |
+<a href="/BookingAgentPurchaseTickets">Purchase Tickets</a> |
+<a href="/BookingAgentViewMyCommission">View My Commission</a> |
+<a href="/BookingAgentViewTopCustomers">View Top Customers</a> | 
+<a href="/BookingAgentLogout">Logout</a>
+</nav>
+
+<p>Here, you can view the commission:</p>
+
+<form action="/BookingAgentViewMyCommission" method="POST">
+<table border="1" cellspacing="0">
+		<tr>
+			<td><label for="date-start">After:</label></td>
+			<td><input type="date" name="DateAfter" id="datepicker" required=""></td>
+		</tr>
+		<tr>
+			<td><label for="date-start">Before:</label></td>
+			<td><input type="date" name="DateBefore" id="datepicker" required=""></td>
+		</tr>
+</table>
+    <div class="row">
+		<input type="submit" class="btn btn-primary btn-block" value="Search">
+    </div>
+</form>
+
+<table border="1" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Total Commission</th>
+                        <th>Average Commission</th>
+                        <th>Total Number of Tickets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+ 
+
+
+</body>
+</html>

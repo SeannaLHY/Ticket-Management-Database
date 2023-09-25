@@ -1,0 +1,131 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+
+
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+
+<i>Here, you can view your flights</i>
+
+<form action="/StaffViewMyFlights_search" method="POST">
+<table>
+
+				
+					<label for="from">From:</label>
+					<input type="text" name="departure" />
+					<label for="from">To:</label>
+					<input type="text" name="destination" />
+					<label for="date-start">Departure Date:</label>
+					<input type="date" name="DepartureDate" type="date" required="" />
+					<label for="date-start">Arrival Date:</label>
+					<input type="date" name="ArrivalDate" type="date" required="" />
+					<input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+				
+
+</table>
+</form>
+
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Airline Name</th>
+							<th>Flight Number</th>
+							<th>Departure Airport</th>
+                            <th>Departure Date</th>
+							<th>Departure Time</th>
+							<th>Arrival Airport</th>
+                            <th>Arrival Date</th>
+							<th>Arrival Time</th>
+							<th>Ticket Price</th>
+							<th>Flight Status</th>
+							<th>Airplane ID</th>
+							<!-- //how to choose the certain ticket -->
+						</tr>
+					</thead>
+					<tbody>
+						{% for row in rows1 %}
+						<tr>
+							<td>{{row[0]}}</td>
+							<td>{{row[1]}}</td>
+							<td>{{row[2]}}</td>
+							<td>{{row[3]}}</td>
+							<td>{{row[4]}}</td>
+							<td>{{row[5]}}</td>
+							<td>{{row[6]}}</td>
+							<td>{{row[7]}}</td>
+							<td>{{row[8]}}</td>
+                            <td>{{row[9]}}</td>
+							<td>{{row[10]}}</td>
+							<td>{{row[11]}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+	
+
+
+
+
+
+
+
+<i>Here, you can view the custemors' flights</i>
+
+
+
+		<form action="/StaffViewMyFlights_flightNumber" method="POST">
+			<table>
+					<td><label for="flight_number">Flight number:</label></td>
+					<td><input type="text" class="form-control" name="flight_number" id="from-place"></td>
+					<td colspan="2"><input type="submit" class="btn btn-primary btn-block" value="Search Flight"></td>
+			</table>
+		</form>
+
+
+			<table border="1" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Email</th>
+						<th>Name</th>
+						<th>Phone Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for row in rows2 %}
+					<tr>
+						<td>{{row[0]}}</td>
+						<td>{{row[1]}}</td>
+						<td>{{row[2]}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+
+
+
+</body>
+</html>
+

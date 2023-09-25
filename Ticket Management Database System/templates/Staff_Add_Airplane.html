@@ -1,0 +1,66 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+<p>Here, you can add new airplane:</p>
+
+
+	<main>
+		<form action="/StaffAddAirplane" method="POST">
+			<label for="airplane_id">Airplane ID</label>
+			<input type="number" name="airplane_id" id="airplane_id" required/><br>
+			<label for="seats">Seating Capacity</label>
+			<input type="number" name="seats" id="seats" required/><br>
+			<input type="submit" value="Add">
+		</form>
+		{% if message %}
+			<script>alert("Successfully Added!");</script>
+		{% endif %}
+		{% if error %}
+			<script>alert("Failed to add airplane!");</script>
+		{% endif %}
+		
+<p>Current airplanes:</p>
+		<table>
+			<thead>
+				<tr>
+					<th>airline name</th>
+					<th>airplane_id</th>
+					<th>seats</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in rows1 %}
+					<tr>
+						<td>{{row[1]}}</td>
+						<td>{{row[0]}}</td>
+						<td>{{row[2]}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</main>
+</body>
+</html>

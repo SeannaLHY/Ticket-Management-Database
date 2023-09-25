@@ -1,0 +1,227 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+
+<h1>Hi, customer!</h1>
+
+<nav>
+	<a href="/CustomerViewMyFlights">View My Flights</a>
+	<a href="/CustomerSearchTickets">Search For Flights</a>
+	<a href="/CustomerPurchaseTickets">Purchase Tickets</a>
+	<a href="/CustomerTrackMySpending">Track My Spending</a>
+	<a href="/CustomerLogout">Logout</a>
+</nav>
+
+
+<p>Here, you can track your spending:</p>
+
+<div class="typo">
+	<div class="container">
+		<table border="1" cellspacing="0">
+			<tr>
+				<td>
+					<label for="date-start">Start Date</label>
+				</td>
+				<td>
+					<input type="date" class="form-control" id="StartMonth" name="StartMonth" placeholder="mm/dd/yyyy"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="date-start">End Date</label>
+				</td>
+				<td>
+					<input type="date" class="form-control" id="EndMonth" name="EndMonth" placeholder="mm/dd/yyyy"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="button" class="btn btn-primary btn-block" value="Submit" onclick="s()">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="text-align: center; font-size: 20px; padding: 40px 0;">Total Spending: <span id="data1"></span></div>
+	<div id="container"></div>
+</div>
+
+
+
+
+<script>
+function s() {
+	console.log(document.getElementById("StartMonth").value);
+	console.log(document.getElementById("EndMonth").value);
+	$.ajax({
+		type: "POST",
+		url: "http://127.0.0.1:9000/CustomerTrackMySpending",
+		dataType: "json",
+		data: {
+			StartMonth: document.getElementById("StartMonth").value,
+			EndMonth: document.getElementById("EndMonth").value
+		},
+		success: data => {
+			console.log(data);
+			document.getElementById('data1').innerHTML = data.data1;
+			Highcharts.chart('container', {
+				chart: {
+					type: 'column'
+				},
+				accessibility: {
+					announceNewData: {
+						enabled: true
+					}
+				},
+				xAxis: {
+					type: 'category'
+				},
+				legend: {
+					enabled: false
+				},
+				plotOptions: {
+					series: {
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							// format: '{point.y:.1f}%'
+						},
+						enableMouseTracking: false,
+					}
+				},
+
+				tooltip: {
+					headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+					pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+				},
+
+				series: [
+					{
+						colorByPoint: true,
+						data: data.data2.map(i => {
+							return {
+								name: i[0],
+								y: i[1]
+							}
+						})
+					}
+				]
+			});
+		}
+	});
+	return false;
+}
+$.ajax({
+		type: "POST",
+		url: "http://127.0.0.1:9000/CustomerTrackMySpending",
+		success: data => {
+			document.getElementById("container").value = "";
+			document.getElementById('data1').innerHTML = data.data1;
+			console.log(data);
+			Highcharts.chart('container', {
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: ''
+				},
+				accessibility: {
+					announceNewData: {
+						enabled: true
+					}
+				},
+				xAxis: {
+					type: 'category'
+				},
+				legend: {
+					enabled: false
+				},
+				plotOptions: {
+					series: {
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							// format: '{point.y:.1f}%'
+						},
+						enableMouseTracking: false,
+					}
+				},
+
+				tooltip: {
+					headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+					pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+				},
+
+				series: [
+					{
+						colorByPoint: true,
+						data: data.data2.map(i => {
+							return {
+								name: i[0],
+								y: i[1]
+							}
+						})
+					}
+				]
+			});
+
+			Highcharts.chart('container', {
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: 'Total Spending'
+				},
+				accessibility: {
+					announceNewData: {
+						enabled: true
+					}
+				},
+				xAxis: {
+					type: 'category'
+				},
+				legend: {
+					enabled: false
+				},
+				plotOptions: {
+					series: {
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							// format: '{point.y:.1f}%'
+						},
+						enableMouseTracking: false,
+					}
+				},
+
+				tooltip: {
+					headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+					pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+				},
+
+				series: [
+					{
+						colorByPoint: true,
+						data: data.map(i => {
+							return {
+								name: i[0],
+								y: i[1]
+							}
+						})
+					}
+				]
+			});
+		}
+	});
+</script>
+
+<!-- Total Spending Chart -->
+
+</body>
+</html>

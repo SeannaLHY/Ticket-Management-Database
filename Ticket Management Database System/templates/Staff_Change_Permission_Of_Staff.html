@@ -1,0 +1,84 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+
+
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+<p>Here, you can change permission of staff:</p>
+
+
+<form action="/StaffChangePermissionOfStaff" method="POST">
+<table border="1" cellspacing="0">
+	<tr>
+	  <td>
+		<label for="from">Staff Username</label>
+	  </td>
+	  <td>
+		  <input type="int" name="username" required/><br>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+		<label for="from">Permission</label>
+	  </td>
+	  <td>
+		<select name="permission">
+		  <option value="Normal">Normal</option>
+		  <option value="Admin">Admin</option>
+		  <option value="Operator">Operater</option>
+		  <option value="Both">Admin&Operater</option>
+		</select>
+	  </td>
+	</tr>
+
+  </table>
+  <div class="row">
+		<input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+    </div>
+</form>
+
+
+  
+	{% if message %}
+	<script>
+		alert("Successfully Changed.");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("Fail to Change!");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("The staff doesn't exist!");
+	</script>
+	{% endif %}
+<!-- //typography-page -->
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

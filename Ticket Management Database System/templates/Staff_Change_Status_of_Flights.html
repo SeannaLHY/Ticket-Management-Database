@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+
+
+
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+<p>Here, you can change status of flights</p>
+
+<form action="/StaffChangeStatusofFlights" method="POST">
+<table border="1" cellspacing="0">
+	<tr>
+		<td><label for="from">Flight Number</label></td>
+		<td><input type="int" class="form-control" name="flight_num" placeholder="Flight Number" aria-describedby="basic-addon1" required/></td>
+	</tr>
+	<tr>
+		<td>Status</td>
+		<td>
+			<select name="status">
+				<option value="Upcoming">Upcoming</option>
+				<option value="In Progress">InProgress</option>
+				<option value="Delayed">Delayed</option>
+			</select>
+		</td>
+	</tr>
+</table>
+<input type="submit" class="btn btn-primary btn-block" value="Change Status">
+</form>
+
+
+
+	{% if message %}
+	<script>
+		alert("Successfully Changed.");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("Fail to Change!");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("The flight doesn't exist!");
+	</script>
+	{% endif %}
+<!-- //typography-page -->
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

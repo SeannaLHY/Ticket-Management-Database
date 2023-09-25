@@ -1,0 +1,52 @@
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+		
+
+<p>Here, you can add booking agent:</p>
+
+<!-- //header -->
+<!--typography-page -->
+<table border="1" cellspacing="0">
+				<form action="/StaffAddAgent" method="POST">
+					<label for="from">Agent Email</label>
+					<input type="email"  name="agent_email" placeholder=""  required/>
+					<input type="submit"  value="Add">
+				</form>
+</table>
+
+	{% if message %}
+	<script>
+		alert("Successfully Added!");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("Fail to add!");
+	</script>
+	{% endif %}
+
+	</body>
+	</html>

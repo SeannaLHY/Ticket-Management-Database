@@ -1,0 +1,62 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, customer!</h1>
+
+
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+<nav>
+	<a href="/CustomerViewMyFlights">View My Flights</a>
+	<a href="/CustomerSearchTickets">Search For Flights</a>
+	<a href="/CustomerPurchaseTickets">Purchase Tickets</a>
+	<a href="/CustomerTrackMySpending">Track My Spending</a>
+	<a href="/CustomerLogout">Logout</a>
+</nav>
+
+
+<p>Here, you can purchase tickets:</p>
+
+<form action="/CustomerPurchaseTickets" method="POST">
+<table border="1" cellspacing="0">
+    <tr>
+      <td>Airline Company:</td>
+      <td><input type="text" name="AirlineCompany" placeholder="China Eastern"></td>
+    </tr>
+    <tr>
+      <td>Flight Number:</td>
+      <td><input type="int" name="FlightNumber" placeholder="3" required></td>
+    </tr>
+  </table>
+  <div class="row">
+		<input type="submit" value="Purchase">
+    </div>
+</form>
+  
+{% if message %}
+<script>
+	alert("Successfully Purchased!");
+</script>
+{% endif %}
+{% if error %}
+<script>
+	alert("Fail in Purchase!");
+</script>
+{% endif %}
+<!-- //typography-page -->
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

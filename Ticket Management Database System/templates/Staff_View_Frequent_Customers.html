@@ -1,0 +1,120 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, staff!</h1>
+    
+<nav>
+	<a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a>
+	<a href="/StaffViewTopDestinations">Top Destinations</a>
+	<a href="/StaffCreateNewFlights">Create New Flights</a>
+	<a href="/StaffChangeStatusofFlights">Change Status of Flights</a>
+	<a href="/StaffAddAirplane">Add Airplane</a>
+	<a href="/StaffAddNewAirport">Add Airport</a>
+	<a href="/StaffChangePermissionOfStaff">Change Staff Permission</a>
+	<a href="/StaffAddAgent">Add Agent</a>
+	<a href="/StaffViewMyFlights">View My flights</a>
+	<a href="/StaffViewFrequentCustomers">Frequent Customers</a>
+	<a href="/StaffReports">Reports</a>
+	<a href="/StaffViewBookingAgent">Booking Agent</a>
+	<a href="/AirlineStaffLogout">Logout</a>
+</nav>
+
+<p>Here, you can view frequent customers</p>
+
+<!-- //header -->
+<!--typography-page -->
+<table border="1" cellspacing="0">
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>Name</th>
+			<th>Number of tickets purchased</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for row in rows1%}
+		<tr>
+			<td>{{row[0]}}</td>
+			<td>{{row[1]}}</td>
+			<td>{{row[2]}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<table border="1" cellspacing="0">
+	<tbody>
+		<tr>
+			<td>
+				<h3 class="title animated wow zoomIn">Look at Particular Customer's flight</h3>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<form action="/StaffViewFrequentCustomers" method="POST">
+					<div class="col-xxs-12 col-xs-12 mt">
+						<div class="input-field">
+							<label for="from">Customer's Email</label>
+							<input type="text" class="input-box" name = "email" aria-describedby="basic-addon1" required/>
+						</div>
+					</div>
+					<div class="col-xs-offset-10">
+						<input type="submit" class="btn btn-primary btn-block" value="View Customer">
+					</div>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<table border = "1" cellspacing="0">
+	<thead>
+	<tr>
+	<th>Airline Name</th>
+	<th>Flight Number</th>
+	<th>Departure Airport</th>
+	<th>Departure Date</th>
+	<th>Departure Time</th>
+	<th>Arrival Airport</th>
+	<th>Arrival Date</th>
+	<th>Arrival Time</th>
+	<th>Ticket Price</th>
+	<th>Flight Status</th>
+	<th>Airplane ID</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	{% for row in rows %}
+		<tr>
+		<td>{{row[0]}}</td>
+		<td>{{row[1]}}</td>
+		<td>{{row[2]}}</td>
+		<td>{{row[3]}}</td>
+		<td>{{row[4]}}</td>
+		<td>{{row[5]}}</td>
+		<td>{{row[6]}}</td>
+		<td>{{row[7]}}</td>
+		<td>{{row[8]}}</td>
+		<td>{{row[9]}}</td>
+		<td>{{row[10]}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+	<script>
+
+	</script>
+
+</body>
+</html>

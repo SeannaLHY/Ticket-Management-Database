@@ -1,0 +1,59 @@
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+    <h1>Hello! Welcome to our flight booking system!</h1>
+    <table>
+        <tr>
+            <td>First-time User: </td>
+            <td><button type="button" onclick="window.location.href='/register'";> Register </a></button><br></td>
+        </tr>
+        
+        <tr>
+            <td>Return User: </td>
+            <td><button type="button" onclick="window.location.href='/login'";> Login </a></button><br></td>
+        </tr>
+    
+    </table>
+    
+
+
+     <i>Upcoming Flights:</i>
+    <form action="/SearchFlightThroughDateAuth" method="POST">
+    		<label for="from">From:</label>
+            <input type="text" name = "departure" placeholder="New York/JFK"/>
+        
+    		<label for="from">To:</label>
+            <input type="text" name = "arrival" placeholder="Shanghai/PVG"/>
+        
+			<label for="date-start">Departure Date:</label>
+			<input type="date" " name = "date"  required="">
+        
+			<input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+    </form>
+    
+    <i>Flight Status:</i>
+
+    <form action="/SearchFlightThroughFlightNumberAuth" method="POST">
+									
+		<label for="from">Flight Number:</label>
+		<input type="int" class="form-control" name = "FlightNumber" id="from-place" placeholder="" required=""/>
+											
+										
+		<label for="date-start">Departure Date:</label>
+		<input type="date" class="form-control" name = "DepartureDate" id="datepicker" required=""/>
+										
+										
+		<label for="date-start">Arrival Date:</label>
+    	<input type="date" class="form-control" name = "ArrivalDate" id="datepicker"  required=""/>
+												
+		<input type="submit" class="btn btn-primary btn-block" value="View Status">
+     </form>
+
+</body>
+</html>

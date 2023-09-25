@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Hi, booking agent! You can purchase tickets</h1>
+
+<nav>
+<a href="/BookingAgentViewMyFlights">View My flights</a> |
+<a href="/BookingAgentSearchTickets">Search for flights</a> |
+<a href="/BookingAgentPurchaseTickets">Purchase Tickets</a> |
+<a href="/BookingAgentViewMyCommission">View My Commission</a> |
+<a href="/BookingAgentViewTopCustomers">View Top Customers</a> | 
+<a href="/BookingAgentLogout">Logout</a>
+</nav>
+    
+
+<p>Here, you can purchase new tickets for your customer:</p>
+
+<form action="/BookingAgentPurchaseTickets" method="POST">
+<table border="1" cellspacing="0">
+	<tr>
+		<td><label for="from">Customer's Email:</label></td>
+		<td><input type="text" name = "customer_email" required=""/></td>
+	</tr>
+	<tr>
+		<td><label for="from">Airline Company:</label></td>
+		<td><input type="text" name = "AirlineCompany"/></td>
+	</tr>
+	<tr>
+		<td><label for="from">Flight Number:</label></td>
+		<td><input type="int" name = "FlightNumber" placeholder="123" required=""/></td>
+	</tr>
+</table>
+    <div class="row">
+    		<input type="submit" class="btn btn-primary btn-block" value="Purchase">
+        </div>
+</form>
+
+{% if message %}
+<script>
+	alert("Successfully Purchased!");
+</script>
+{% endif %}
+{% if error %}
+<script>
+	alert("Fail in Purchase!");
+</script>
+{% endif %}
+<!-- //typography-page -->
+
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

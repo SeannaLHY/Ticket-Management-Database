@@ -1,0 +1,132 @@
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+</style>
+</head>
+<body>
+
+    <h1>Welcome to the LOGIN page!</h1>
+
+    
+    
+     <i>Customers:</i>
+     
+	<form action="/CustomerLoginAuth" method="POST">
+
+    <table border = "1" cellspacing="0">
+    
+     <tr>
+         <td>
+		<label for="from">Email</label>
+		</td>
+		<td>
+		<input type="text" name = "email" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Password</label>
+		</td>
+		<td>
+		<input type="text" name = "password" required/>
+        </td>
+    <tr>
+  
+    </table>
+    
+    <div class="row">
+		<input type="submit" value="LogIn">
+    </div>
+											
+    </form>
+    
+    
+    
+    
+    
+    
+     <i>Booking Agent:</i>
+     
+	<form action="/AgentLoginAuth" method="POST">
+
+    <table border = "1" cellspacing="0">
+    
+     <tr>
+         <td>
+		<label for="from">Email</label>	
+		</td>
+		<td>
+		<input type="text" name = "email" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Password</label>
+		</td>
+		<td>
+		<input type="text" name = "password" required/>
+        </td>
+    <tr>
+    
+ 
+    </table>
+    
+    <div class="row">
+		<input type="submit" value="LogIn">
+    </div>
+											
+    </form>
+
+
+
+
+ <i>Airline Staff:</i>
+     
+	<form action="/StaffLoginAuth" method="POST">
+
+    <table border = "1" cellspacing="0">
+    
+     <tr>
+         <td>
+		<label for="from">Username</label>
+		</td>
+		<td>
+		<input type="text" name = "username" required/>
+        </td>
+    <tr>
+    
+    <tr>
+         <td>
+		<label for="from">Password</label>
+		</td>
+		<td>
+		<input type="text" name = "password" required/>
+        </td>
+    <tr>
+    
+    
+    
+    </table>
+    
+    <div class="row">
+		<input type="submit" class="btn btn-primary btn-block" value="LogIn">
+    </div>
+											
+    </form>
+ 
+{% if error %}
+   	<script>
+   		alert("Fail in logging in!");
+   	</script>
+{% endif %}
+ 
+
+  
+
+
+</body>
+</html>
